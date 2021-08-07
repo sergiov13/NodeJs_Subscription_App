@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/navbar';
+import SubscriptionCreate from './components/subscriptionCreate';
+import SubscriptionEditDel from './components/subscriptionEditDel';
+import SubscriptionList from './components/subscriptionList';
+import Home from './components/home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path='/' exact component={Home}/>
+          <Route path='/create' exact component={SubscriptionCreate}/>
+          <Route path='/list' exact component={SubscriptionList}/>
+          <Route path='/edit/:id' exact component={SubscriptionEditDel}/>
+        </Switch>
+      </Router>
   );
 }
 
