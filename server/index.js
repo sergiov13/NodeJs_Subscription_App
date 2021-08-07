@@ -27,7 +27,8 @@ try {
 
 //router for subscriptions endpoint
 const subscriptionRouter = require('./routes/subscriptions');
-app.use('/subscriptions', subscriptionRouter);
+
+app.use('/subscription', subscriptionRouter);
 
 //Start server listening
 app.listen(PORT, () => {
