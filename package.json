@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
-},
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -21,7 +20,7 @@
     "mongoose": "^5.13.5",
     "node-cron": "^3.0.0",
     "nodemailer": "^6.6.3",
-    "nodemon": "^2.0.12",
-    "serve": "^12.0.0"
+    "nodemon": "^2.0.12"
   }
 }
+
