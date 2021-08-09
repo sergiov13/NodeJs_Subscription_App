@@ -19,9 +19,6 @@ export default function Navbar() {
           <LinkContainer to='/create'>
             <Nav.Link>Create</Nav.Link>
           </LinkContainer>
-          <LinkContainer to='/edit'>
-            <Nav.Link>Edit/Delete</Nav.Link>
-          </LinkContainer>
         </Nav>
       </Container>
     </NavBar>

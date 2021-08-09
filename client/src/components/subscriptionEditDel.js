@@ -54,8 +54,7 @@ export default function SubscriptionEditDel(props) {
         })
         .catch(err => console.log(err));
     }
-
-}, [])
+},[])
 
   const onSubmit = (data) => {
     axios.post('http://localhost:8000/subscription/update/'+data._id, data)

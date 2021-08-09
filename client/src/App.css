@@ -1,7 +1,19 @@
 .App {
   text-align: center;
+  justify-content: center;
 }
-
+p{
+  text-align: center;
+  justify-content: center;
+}
+form{
+  text-align: center;
+  justify-content: center;
+}
+input{
+  text-align: center;
+  justify-content: center;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

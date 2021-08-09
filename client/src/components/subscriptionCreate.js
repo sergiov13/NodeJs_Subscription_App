@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 const content = {
   inputs: [
@@ -29,22 +29,25 @@ const content = {
 };
 
 export default function SubscriptionCreate() {
-  const { register, handleSubmit } = useForm({ shouldFocusError: true, defaultValues: {}, });
+  const { register, handleSubmit } = useForm({
+    shouldFocusError: true,
+    defaultValues: {},
+  });
   let history = useHistory();
 
   const onSubmit = (data) => {
-    axios.post('http://localhost:8000/subscription/add', data)
-    .then( res => console.log(res.data))
-    .catch( err => console.log("Bad" + err))
+    axios
+      .post("http://localhost:8000/subscription/add", data)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log("Bad" + err));
     console.log(data);
-    history.push('/');
-    alert('Good job');
+    history.push("/");
+    alert("Good job");
   };
-
 
   return (
     <>
-       {console.log('Rendering')}
+      {console.log("Rendering")}
       <form onSubmit={handleSubmit(onSubmit)}>
         {content.inputs.map((input, index) => {
           return (
@@ -53,21 +56,27 @@ export default function SubscriptionCreate() {
                 <label>{input.label}</label>
               </p>
               <p>
-                <input 
-                    name={input.name}  
-                    type={input.type} 
-                    {...register(input.name, { required: true })}/>
+                <input
+                  name={input.name}
+                  type={input.type}
+                  {...register(input.name, { required: true })}
+                />
               </p>
             </div>
           );
         })}
-        <select {...register("productName")}>
+        <p>
+          <label>Product Name</label>
+        </p>
+        <select className='selectOp' {...register("productName")}>
           <option value="">Select...</option>
           <option value="domain">Domain</option>
           <option value="pDomain">Protected Domain</option>
           <option value="hosting">Hosting</option>
         </select>
-        <button type="submit">Submit</button>
+        <p>
+          <button type="submit">Submit</button>
+        </p>
       </form>
     </>
   );
