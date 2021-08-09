@@ -47,7 +47,7 @@ export default function SubscriptionEditDel(props) {
 
   useEffect(() => {
         if(props.match.params.id != null) {
-        axios.get('http://localhost:8000/subscription/'+ props.match.params.id)
+        axios.get('/subscription/'+ props.match.params.id)
         .then( res => {
             setSubscription(res.data);
             setLoading(false);
@@ -57,7 +57,7 @@ export default function SubscriptionEditDel(props) {
 },[])
 
   const onSubmit = (data) => {
-    axios.post('http://localhost:8000/subscription/update/'+data._id, data)
+    axios.post('/subscription/update/'+data._id, data)
     .then( res => console.log(res.data))
     .catch( err => console.log("Bad" + err))
     history.push('/');

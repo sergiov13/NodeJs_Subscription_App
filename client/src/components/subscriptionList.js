@@ -10,7 +10,7 @@ export default function SubscriptionList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/subscription/")
+      .get("/subscription/")
       .then((res) => {
         setSubscription(res.data);
       })
@@ -20,7 +20,7 @@ export default function SubscriptionList() {
   
   const deleteSubscription = (id) => {
     axios
-      .delete("http://localhost:8000/subscription/"+id)
+      .delete("/subscription/"+id)
       .then((res) => console.log("Deleted: " + res.data))
       .catch((err) => console.log(err));
     setSubscription((prev) => prev.filter((el) => el._id !== id));

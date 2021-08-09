@@ -37,7 +37,7 @@ export default function SubscriptionCreate() {
 
   const onSubmit = (data) => {
     axios
-      .post("http://localhost:8000/subscription/add", data)
+      .post("/subscription/add", data)
       .then((res) => console.log(res.data))
       .catch((err) => console.log("Bad" + err));
     console.log(data);
