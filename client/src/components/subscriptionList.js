@@ -72,7 +72,7 @@ export default function SubscriptionList() {
     }
 
   const subscriptionList = () => {
-    return subscription.map((currentSubs, index) => (
+    return( subscription.map((currentSubs, index) => (
       <tr key={index + "_tr"}>
         <td key={index + "_CustId"}>{currentSubs.customerId}</td>
         <td key={index + "_prodName"}>{currentSubs.productName}</td>
@@ -98,8 +98,8 @@ export default function SubscriptionList() {
           </Button>
         </td>
       </tr>
-    ));
-  };
+    ))
+    )};
 
 
 
@@ -115,11 +115,11 @@ export default function SubscriptionList() {
             <th>Start Date</th>
             <th>Duration</th>
             <th>End Date</th>
-            <th onClick={e => toggleSort(e)}>Scheduled Email</th>
+            <th>Scheduled Email</th>
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>{sorted ? subscriptionList() : subscriptionList()}</tbody>
+        <tbody>{subscriptionList()}</tbody>
       </Table>
     </div>
   );
