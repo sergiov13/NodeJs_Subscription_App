@@ -8,24 +8,27 @@ export default function SubscriptionList() {
   const [subscription, setSubscription] = useState([]);
 
   useEffect(() => {
-    console.log("something should be happening");
     axios
       .get("http://localhost:8000/subscription/")
       .then((res) => {
         setSubscription(res.data);
-        console.table(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
   const deleteSubscription = (id) => {
     axios
-      .delete("http://localhost:8000/subscription/" + id)
+      .delete("http://localhost:8000/subscription/update/" +id)
       .then((res) => console.log(res.data));
-
     setSubscription((prev) => prev.filter((el) => el._id !== id));
   };
 
+  const addMonths = (date, months) => {
+    var d = new Date(date);
+    d.setMonth(d.getMonth() +months);
+    return d.toISOString()
+  }
+  
   const subscriptionList = () => {
     console.log("THIS ARE THE " + subscription);
     return subscription.map((currentSubs, index) => (
@@ -35,8 +38,9 @@ export default function SubscriptionList() {
         <td key={index + "_dom"}>{currentSubs.domain}</td>
         <td key={index + "_date"}>{currentSubs.startDate.substring(0, 10)}</td>
         <td key={index + "_duration"}>{currentSubs.durationMonths}</td>
+        <td key={index + "_endDate"}>{addMonths(currentSubs.startDate,currentSubs.durationMonths).substring(0, 10)}</td>
         <td key={index + "_id"}>
-          <Link text-decoration="none" to={"/edit/" + currentSubs._id}>
+          <Link textDecoration="none" to={"/edit/" + currentSubs._id}>
             <Button variant="secondary">Edit</Button>
           </Link>
           {"  "}
@@ -64,6 +68,7 @@ export default function SubscriptionList() {
             <th>Domain</th>
             <th>Start Date</th>
             <th>Duration</th>
+            <th>End Date</th>
             <th>Action</th>
           </tr>
         </thead>

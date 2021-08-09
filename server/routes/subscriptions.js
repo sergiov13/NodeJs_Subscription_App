@@ -37,8 +37,9 @@ router.route('/add').post((req, res) => {
 
 //Fetch of subscription By id and Get
 router.route('/:id').get((req,res) => {
+    console.log('ID QUE BUSCAMOS '+req.params.id);
     Subscription.findById(req.params.id)
-        .then(() => res.json(subscription))
+        .then(subscription => res.json(subscription))
         .catch(err => res.status(400).json('Error: '+err))
 });
 

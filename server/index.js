@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
+const emailScheduler = require('./utils/emailScheduler.js')
 require('dotenv').config();
 
 //Middleware
@@ -33,6 +34,7 @@ app.use('/subscription', subscriptionRouter);
 //Start server listening
 app.listen(PORT, () => {
     console.log(`Server running on ${PORT}`);
+    emailScheduler();
 })
 
 

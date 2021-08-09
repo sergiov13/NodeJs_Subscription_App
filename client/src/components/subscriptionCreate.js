@@ -11,11 +11,6 @@ const content = {
       type: "text",
     },
     {
-      label: "Product Name",
-      name: "productName",
-      type: "text",
-    },
-    {
       label: "Domain",
       name: "domain",
       type: "text",
@@ -66,6 +61,12 @@ export default function SubscriptionCreate() {
             </div>
           );
         })}
+        <select {...register("productName")}>
+          <option value="">Select...</option>
+          <option value="domain">Domain</option>
+          <option value="pDomain">Protected Domain</option>
+          <option value="hosting">Hosting</option>
+        </select>
         <button type="submit">Submit</button>
       </form>
     </>
