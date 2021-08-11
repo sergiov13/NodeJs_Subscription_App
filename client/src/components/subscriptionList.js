@@ -13,9 +13,10 @@ export default function SubscriptionList() {
       .get("/subscription/")
       .then((res) => {
         setSubscription(res.data);
+        console.log(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  },[]);
 
   
   const deleteSubscription = (id) => {
@@ -71,8 +72,8 @@ export default function SubscriptionList() {
       SortSchedule();
     }
 
-  const subscriptionList = () => {
-    return( subscription.map((currentSubs, index) => (
+  function subscriptionList() {
+    return(subscription && subscription.map((currentSubs, index) => (
       <tr key={index + "_tr"}>
         <td key={index + "_CustId"}>{currentSubs.customerId}</td>
         <td key={index + "_prodName"}>{currentSubs.productName}</td>
@@ -98,8 +99,7 @@ export default function SubscriptionList() {
           </Button>
         </td>
       </tr>
-    ))
-    )};
+    )))};
 
 
 
@@ -119,7 +119,7 @@ export default function SubscriptionList() {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>{subscriptionList()}</tbody>
+        <tbody>{subscription ? subscriptionList() : 'Loading...'}</tbody>
       </Table>
     </div>
   );

@@ -15,8 +15,8 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 
 // ...
 // Right before your app.listen(), add this:
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "public", "index.html"));
 });
 
 //Middleware
@@ -51,7 +51,7 @@ app.listen(PORT, () => {
 
 
 //Home endpoint
-app.get('/',(req,res) => {
-    console.log("Incoming GET");
-    res.status(200).json({Hello: "world"});
-})
+// app.get('/',(req,res) => {
+//     console.log("Incoming GET");
+//     res.status(200).json({Hello: "world"});
+// })
