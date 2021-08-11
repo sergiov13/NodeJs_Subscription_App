@@ -7,6 +7,8 @@ import Home from './components/home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+
+//tsting github api with somesimple change 
 function App() {
   return (
       <Router>
