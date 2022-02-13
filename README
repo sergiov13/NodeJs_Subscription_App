@@ -1,0 +1,30 @@
+***Small project for Interview***
+Time: 2Hrs
+
+App for scheduling and tracking transaction-based email.
+Should support add remove/remove products owned by customers and listing an email schedule.
+
+Object Subscription to Product:
+- CustomerId        ("Cust123")
+- ProductName       ("hosting","domain","pdomain")
+- Domain            ("foobar.com")
+- StartDate         ("2021-01-01", "YYYY-MM-DD")
+- DurationMonths    ("12")
+
+Removing a Subscription object requires:
+- CustomerId        ("Cust123")
+- ProductName       ("hosting","domain","pdomain")
+- Domain            ("foobar.com")
+
+
+Listing should be returned order by date.
+
+Products:
+- domain    Email 2 days before expiration.
+- pdomain   Email 9 days before expiration and 2 days before expiration. (Protected Domain)
+- hosting   Email 1 day after activation and 3 days before expiration.
+
+* User can have multiple subscriptions
+* Domain should be unique
+* One CustId and email per User.
+
